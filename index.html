@@ -3,146 +3,279 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>いなわくTV ヘルプ</title>
+<title>よくあるご質問｜いなわくTV</title>
 <style>
-* { box-sizing: border-box; }
-body {
-  margin: 0; background: #f4f8f8; color: #263c40;
-  font: 18px/1.8 system-ui, sans-serif;
-}
-header { background: #086d77; color: white; padding: 32px 20px; }
-header div, main { max-width: 820px; margin: auto; }
-h1 { font-size: clamp(28px, 6vw, 40px); margin: 0; }
-header p { margin: 8px 0 0; }
-main { padding: 28px 20px 60px; }
-label { display: block; font-weight: bold; margin-bottom: 8px; }
-input {
-  width: 100%; padding: 16px; border: 2px solid #789498;
-  border-radius: 12px; font: inherit;
-}
-button, .link {
-  display: inline-block; padding: 14px 20px; margin: 8px 8px 8px 0;
-  border: 0; border-radius: 10px; background: #086d77;
-  color: white; font: inherit; text-decoration: none; cursor: pointer;
-}
-.examples button { background: white; color: #086d77; border: 1px solid #789498; }
-article {
-  margin-top: 20px; padding: 24px; background: white;
-  border: 1px solid #b8cccc; border-radius: 16px;
-}
-h2 { font-size: 23px; margin-top: 0; }
-.note { color: #526b70; font-size: 16px; }
-a { color: #086d77; }
-:focus-visible { outline: 3px solid #c17400; outline-offset: 4px; }
-footer { margin-top: 32px; }
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#253238;font:18px/1.8 system-ui,sans-serif}
+header{background:#30353b;color:#fff;text-align:center;padding:36px 20px}
+h1{margin:0;font-size:clamp(28px,6vw,38px)}
+header p{margin:8px 0 0}
+main{max-width:1100px;margin:auto;padding:30px 20px 60px}
+label{display:block;font-weight:bold;margin-bottom:8px}
+input{width:100%;padding:16px;border:2px solid #82989c;border-radius:8px;font:inherit}
+button{font:inherit;cursor:pointer}
+.primary{background:#008ba4;color:white;border:0;padding:12px 24px;border-radius:8px;margin-top:10px}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.tags button{background:#edf8fa;border:1px solid #96bbc2;border-radius:8px;padding:8px 14px;color:#006b80}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.category{border:1px solid #d4dcdf;border-radius:8px;overflow:hidden}
+.category h2{font-size:22px;margin:0;padding:16px 20px;border-bottom:1px solid #d4dcdf}
+.category ul{margin:0;padding:16px 20px 20px 40px}
+.category li{margin:10px 0;color:#008ba4}
+.question{background:none;border:0;color:#00758c;text-align:left;padding:4px 0;line-height:1.7;text-decoration:underline;text-underline-offset:4px}
+article{padding:24px;border:1px solid #b9cdd2;border-radius:10px;margin:20px 0;background:#f7fbfc}
+article h2{font-size:23px;margin:0 0 12px}
+article p{overflow-wrap:anywhere}
+a{color:#00758c}
+.meta{font-size:16px;color:#5b6d75}
+#results{scroll-margin-top:20px}
+footer{margin-top:36px;border-top:1px solid #ddd;padding-top:20px}
+:focus-visible{outline:3px solid #b87100;outline-offset:4px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}main{padding:24px 16px}article{padding:20px}}
 </style>
 </head>
 <body>
-<header><div>
-  <h1>いなわくTV ヘルプ</h1>
-  <p>知りたいことを質問してください</p>
-</div></header>
+<header>
+<h1>よくあるご質問</h1>
+<p>いなわくTV ヘルプ</p>
+</header>
 <main>
-  <p class="note">試作版：メンバー動画に関する2件の回答を掲載しています。</p>
-  <form id="form">
-    <label for="question">どんなことを知りたいですか？</label>
-    <input id="question" type="search" required maxlength="300"
-      placeholder="例：メンバー動画はどこで見るの？">
-    <button type="submit">回答を見る</button>
-  </form>
-  <div class="examples">
-    <p>下の質問を押して試すこともできます。</p>
-    <button type="button" data-question="メンバー動画はどこで見るの？">
-      メンバー動画はどこで見るの？
-    </button>
-    <button type="button" data-question="メンバーシップの使い方を教えて">
-      メンバーシップの使い方を教えて
-    </button>
-  </div>
-  <p id="status" role="status"></p>
-  <section id="answers" aria-label="回答"></section>
-  <footer><a href="https://inawakutv.com/">いなわくTVのホームページへ</a></footer>
+<p>いなわくTVのYouTubeに寄せられるご質問をまとめています。知りたいことを入力するか、下の一覧から質問を選んでください。</p>
+<form id="form">
+<label for="query">どんなことを知りたいですか？</label>
+<input id="query" type="search" maxlength="300" required placeholder="例：メンバー動画はどこで見るの？">
+<button class="primary" type="submit">回答を見る</button>
+</form>
+<div class="tags" aria-label="タグから探す">
+<button type="button" data-tag="動画">動画</button>
+<button type="button" data-tag="URL">URL</button>
+<button type="button" data-tag="Zoom">Zoom</button>
+<button type="button" data-tag="支払い">支払い</button>
+<button type="button" id="clear">一覧に戻る</button>
+</div>
+<section id="results" aria-label="質問への回答" hidden>
+<p id="status" role="status"></p>
+<div id="answers"></div>
+</section>
+<p class="meta">8つの分類・15件の質問</p>
+<div id="categories" class="grid"></div>
+<footer>
+<a href="https://inawakutv.com/">いなわくTVのホームページへ</a>
+<p class="meta">試作版です。回答内の画像は準備中です。</p>
+</footer>
 </main>
 <script>
-const records = [
-  {
-    title: 'メンバーシップの使い方の動画はありますか？',
-    answer: 'はい。メンバーシップ専用の使い方の動画をご用意しております。下のボタンから再生リストをご覧ください。',
-    links: [
-      ['使い方の動画を見る', 'https://youtube.com/playlist?list=PLa3belS0rIMbMLR-Utkl3t_3OWtoWyhmN']
-    ]
-  },
-  {
-    title: 'メンバー専用動画はどうやって観れますか？',
-    answer: 'メンバーシップ限定（VIP）より上位レベルの方には、専用動画がございます。Wordのんびり講座と、エクセル仕事で使えるビジネス関数講座は、下の再生リストからご覧ください。',
-    links: [
-      ['Wordのんびり講座を見る', 'https://youtube.com/playlist?list=PLa3belS0rIMYMaNsZpFIXmf2s0DtHZBel'],
-      ['エクセルのビジネス関数講座を見る', 'https://youtube.com/playlist?list=PLa3belS0rIMYK5msG9FxnIudmHVWBFNQx']
-    ]
-  }
-];
-const field = document.getElementById('question');
-const answers = document.getElementById('answers');
-const status = document.getElementById('status');
-
-function selectAnswers(text) {
-  const q = text.normalize('NFKC').toLowerCase().replace(/\s/g, '');
-  if (/退会|解約|支払|料金|返金|パスワード|メール|電話|zoom|ズーム|ライブ/.test(q)) {
-    return [];
-  }
-  const member = /メンバー|会員|vip/.test(q);
-  const video = /動画|ビデオ|再生リスト/.test(q);
-  const use = /使い方|つかいかた|利用方法/.test(q);
-  const watch = /どこ|見る|みる|観|見れ|見られ|視聴|どうやって|開/.test(q);
-  const lesson = /word|ワード|のんびり|excel|エクセル|関数/.test(q);
-  const ids = [];
-  if (member && use) ids.push(0);
-  if (lesson || (member && video && watch && !use)) ids.push(1);
-  if (member && video && !ids.length) ids.push(0, 1);
-  return ids;
+const data = [
+{
+category:"サイト内の使い方",
+title:"メンバーシップの使い方の動画はありますか？",
+tags:["動画"],
+body:"はい。メンバーシップ専用の動画はいくつかご用意しております。再生リストをご覧ください。\nhttps://youtube.com/playlist?list=PLa3belS0rIMbMLR-Utkl3t_3OWtoWyhmN",
+patterns:[["メンバー|会員","使い方|つかいかた|利用方法|使う方法"]]
+},
+{
+category:"いなわくTVのYouTubeチャンネル",
+title:"いなわくTVのYouTubeのURLは何ですか？",
+tags:["URL"],
+body:"YouTubeでパソコンやiPhoneなどのノウハウをご紹介しています。\n\nhttps://youtube.com/@inawakutv",
+patterns:[["youtube|ユーチューブ|チャンネル","url|アドレス|どこ|場所|リンク"]]
+},
+{
+category:"いなわくTVのYouTubeチャンネル",
+title:"メンバーシップ限定の専用オフィシャルブログはどこですか？",
+tags:["URL"],
+body:"パスワード付きのページになります。\n\nhttps://inawakutv.com/members-page/",
+patterns:[["メンバー|会員|専用|限定","ブログ|オフィシャル|専用ページ"],["ブログ","どこ|url|リンク|場所"]]
+},
+{
+category:"手続き",
+title:"退会の処理をお願い出来ますか？",
+tags:["支払い"],
+body:"出来ません。事務手続きは行うことが出来ません。\n入会・退会すべてYouTubeにて手続きをします。いなわくTVでは支払いに関するお手伝いすることが出来ません。",
+patterns:[["退会|解約|やめたい|辞めたい|やめる|辞める|入会手続"]]
+},
+{
+category:"手続き",
+title:"支払を現金や振り込みにしてほしい",
+tags:["支払い"],
+body:"メンバーシップ手続きの場合、現金は出来ません。クレジットが基本ですが、GooglePayでチャージをしていただく方法があります。チャージはコンビニなどで「GooglePay」で購入いただいたら、ご自身のアカウントにコードで入金すること出来ます。いなわくTV側では直接、支払いについての回答は出来かねます。YouTubeにお問い合わせいただくしかありません。\n\nいなわくTVの個別対応オンライン講座などではお振込みにて講座を行っております。クレジットの場合はご相談ください。ご案内をメールにて差し上げます。",
+patterns:[["支払|払う|現金|振込|振り込|クレジット|googlepay|チャージ"]]
+},
+{
+category:"保護中のページ",
+title:"パスワードがわからずページを開けません",
+tags:["動画"],
+body:"お手数をおかけします。※毎月パスワードを更新いたします。\n今月のパスワードをお探しの方はYouTubeいなわくTVの【コミュニティ】よりお探しください。コミュニティはいなわくTVのYouTubeにございます。\nコミュニティがどこかわからない方は下記の動画にて解説しております。\nhttps://youtu.be/RbcVOJ-1N7s",
+patterns:[["パスワード|暗証|保護中"],["コミュニティ","どこ|場所|見つから|わから|分から"]]
+},
+{
+category:"メンバー専用の動画やライブ配信",
+title:"メンバーのみ専用のライブはどこで観れますか？",
+tags:["動画"],
+body:"メンバーシップの方は毎週ライブ配信にて勉強会を行います。\n\n過去の再生リストはこちらからご覧ください。\n\nhttps://youtube.com/playlist?list=PLa3belS0rIMazu-de14m_AZLahY2PZuxL",
+patterns:[["ライブ|配信","どこ|見る|みる|観|視聴|過去|アーカイブ|再生リスト"]]
+},
+{
+category:"メンバー専用の動画やライブ配信",
+title:"ライブ配信の日時は決まっていますか？",
+tags:[],
+body:"ライブ配信はある程度決めて配信中です。たまにお休みする場合がございます。\n\n夜20：00?が定時ですが。曜日は少しずつ変更します。\n\nライブ配信についての確認はいなわくTVのYouTube【コミュニティ】よりいつでも確認することができます。\n\nhttps://youtube.com/@inawakutv",
+patterns:[["ライブ|配信","いつ|日時|日程|曜日|時間|何時|予定"]]
+},
+{
+category:"メンバー専用の動画やライブ配信",
+title:"メンバー専用動画はどうやって観れますか？",
+tags:["動画"],
+body:"メンバーシップ限定（VIP）より上位レベルの方は専用動画がございます。\n\n・Wordのんびり講座\nhttps://youtube.com/playlist?list=PLa3belS0rIMYMaNsZpFIXmf2s0DtHZBel\n\n・エクセル仕事で使えるビジネス関数講座\nhttps://youtube.com/playlist?list=PLa3belS0rIMYK5msG9FxnIudmHVWBFNQx",
+patterns:[["メンバー|会員|限定|専用","動画|ビデオ","どこ|見る|みる|観|視聴|どうやって|見れ|見られ"],["word|ワード|のんびり|excel|エクセル|関数","講座|動画|見る|みる|観|どこ"]]
+},
+{
+category:"勉強会",
+title:"Zoomに参加する方法がわかりません",
+tags:["Zoom"],
+body:"Zoomによる勉強会はYouTubeよりメールが届きます。日程やZoomのIDなどもメールに記載されます。ただし、メールは途中までの記載が多く完全なる全文はメールの最後にあるリンクをクリックしてYouTubeのコミュニティにジャンプしてお読みください。\n\nまた、過去のものも含めてYouTubeコミュニティよりお読みいただくことが出来ます。\n\n交流会や勉強会をZoomにて行うことがございます。\n\nメンバーシップ専用ページの一番下にZoomの事前のご用意に関しまして記載がございます。\n\nhttps://inawakutv.com/members-page/\n\n※パスワードは毎月更新します。\n\nZoomの入り方がそれでもわからない方はお電話にて対応しております。",
+patterns:[["zoom|ズーム","参加|入り|入る|接続|方法|準備|わから|分から|id"],["勉強会|交流会","参加方法|入り方|入る方法"]]
+},
+{
+category:"勉強会",
+title:"勉強会の日程は決まっていますか？",
+tags:[],
+body:"勉強会はある程度決めてあります。たまにお休みする場合がございます。\n\n夜20：00?が定時ですが。曜日は少しずつ変更します。\n\n勉強会についての確認はいなわくTVのYouTube【コミュニティ】よりいつでも確認することができます。勉強会のご参加はメンバーシップ限定（VIP）以上の方のみとなりますので、いなわくTVオフィシャルブログのページにはURLなどの記載がございません。\n\nhttps://youtube.com/@inawakutv",
+patterns:[["勉強会|交流会|zoom|ズーム","いつ|日時|日程|曜日|時間|何時|予定"]]
+},
+{
+category:"メールについて",
+title:"いなわくTVへのメールアドレス",
+tags:[],
+body:"ina@wakuwaku-factory.com\n\nお支払い以外のお問い合わせをお願いいたします。お支払いはYouTubeに直接お願いいたします。",
+patterns:[["メール|mail","アドレス|宛先|送信先|送り先|連絡先"]]
+},
+{
+category:"メールについて",
+title:"YouTubeからのメール",
+tags:[],
+body:"YouTubeに登録するといなわくTVからのメールが配信されます。ですが、本文の長さによって途中で切れて読めないことがあります。記事全文をお読みいただく為にはYouTubeのコミュニティからお読みいただけますようお願い申し上げます。\n\nhttps://youtube.com/@inawakutv",
+patterns:[["メール|mail","途中|切れ|読め|全文|届く|youtubeから|ユーチューブから"]]
+},
+{
+category:"サポート",
+title:"電話サポートを受けたい",
+tags:["動画","Zoom"],
+body:"個別講座はオンラインレッスンにて別枠で受講としてお願いします。メンバーシップはメンバーシップ限定（VIP）まで個別のレッスンではなく、グループ講座です。ただしZoomなどでの勉強会に参加したいが、そもそもZoomがわからない場合に、電話にてZoomが出来るまでをレクチャーいたします。電話での操作を動画内で解説していますので、ご覧ください。\n\nhttps://youtu.be/GY6Hwz5TbVQ?t=1000",
+patterns:[["電話|個別","サポート|教えて|相談|レッスン|講座|受けたい|対応"]]
+},
+{
+category:"サポート",
+title:"連絡先を知りたい",
+tags:[],
+body:"・動画のリクエストなどは\nhttps://forms.gle/FiZjYfcuLnyo4roY7\nのフォームからお願いいたします。\nただし、個別相談はオンラインレッスンやリアル教室をお申込みください。\n\n・メールアドレス\nina@wakuwaku-factory.com\n\n・電話（受講中が多く直接お電話に出ることが難しい場合があります）\n042-505-6375",
+patterns:[["連絡先|問い合わせ先|問合せ先|電話番号|リクエスト|動画の要望"],["問い合わせ|問合せ","どこ|方法|送り|送る"]]
 }
-
-function showAnswer() {
-  answers.replaceChildren();
-  const ids = selectAnswers(field.value);
-  if (!ids.length) {
-    status.textContent = 'この試作には、質問に合う回答が見つかりませんでした。現在はメンバー動画の使い方と視聴案内に対応しています。';
-    return;
+];
+const query=document.getElementById("query");
+const results=document.getElementById("results");
+const answers=document.getElementById("answers");
+const status=document.getElementById("status");
+const categories=document.getElementById("categories");
+const normalize=text=>text.normalize("NFKC").toLowerCase().replace(/\s/g,"");
+function appendText(parent,text){
+  const expression=/https?:\/\/[^\s<>]+|[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
+  let end=0;
+  for(const match of text.matchAll(expression)){
+    parent.append(document.createTextNode(text.slice(end,match.index)));
+    const link=document.createElement("a");
+    link.href=match[0].includes("@")&&!match[0].startsWith("http")
+      ?"mailto:"+match[0]:match[0];
+    link.textContent=match[0];
+    parent.append(link);
+    end=match.index+match[0].length;
   }
-  status.textContent = ids.length === 1
-    ? '関連する回答が1件見つかりました。'
-    : '関連する回答が2件見つかりました。知りたい内容をご確認ください。';
-  for (const id of ids) {
-    const record = records[id];
-    const card = document.createElement('article');
-    const heading = document.createElement('h2');
-    heading.textContent = record.title;
-    const paragraph = document.createElement('p');
-    paragraph.textContent = record.answer;
-    card.append(heading, paragraph);
-    for (const [label, url] of record.links) {
-      const link = document.createElement('a');
-      link.className = 'link';
-      link.href = url;
-      link.textContent = label;
-      card.append(link);
+  parent.append(document.createTextNode(text.slice(end)));
+}
+function show(ids,message){
+  answers.replaceChildren();
+  results.hidden=false;
+  status.textContent=message;
+  for(const id of ids){
+    const item=data[id];
+    const card=document.createElement("article");
+    const meta=document.createElement("p");
+    meta.className="meta";
+    meta.textContent=item.category;
+    const heading=document.createElement("h2");
+    heading.textContent=item.title;
+    heading.tabIndex=-1;
+    card.append(meta,heading);
+    for(const block of item.body.split(/\n\s*\n/)){
+      const p=document.createElement("p");
+      const lines=block.split("\n");
+      lines.forEach((line,index)=>{
+        if(index)p.append(document.createElement("br"));
+        appendText(p,line);
+      });
+      card.append(p);
     }
     answers.append(card);
   }
+  results.scrollIntoView({block:"start"});
+  if(ids.length)answers.querySelector("h2").focus({preventScroll:true});
 }
-document.getElementById('form').addEventListener('submit', event => {
-  event.preventDefault();
-  showAnswer();
-});
-field.addEventListener('input', () => {
-  answers.replaceChildren();
-  status.textContent = '';
-});
-document.querySelectorAll('[data-question]').forEach(button => {
-  button.addEventListener('click', () => {
-    field.value = button.dataset.question;
-    showAnswer();
+function search(){
+  const text=normalize(query.value);
+  if(!text){
+    show([],"知りたいことを入力してください。");
+    return;
+  }
+  const exact=data.findIndex(item=>normalize(item.title)===text);
+  if(exact>=0){show([exact],"関連する回答が1件見つかりました。");return}
+  const hits=[];
+  data.forEach((item,index)=>{
+    const matched=item.patterns.some(group=>
+      group.every(pattern=>new RegExp(pattern,"i").test(text)));
+    if(matched)hits.push(index);
   });
+  show(hits,hits.length
+    ?"関連する回答が"+hits.length+"件見つかりました。"
+    :"質問に合う回答が見つかりませんでした。言葉を変えるか、下の一覧から質問を選んでください。");
+}
+for(const name of [...new Set(data.map(item=>item.category))]){
+  const section=document.createElement("section");
+  section.className="category";
+  const heading=document.createElement("h2");
+  heading.textContent=name;
+  const list=document.createElement("ul");
+  data.forEach((item,index)=>{
+    if(item.category!==name)return;
+    const li=document.createElement("li");
+    const button=document.createElement("button");
+    button.type="button";
+    button.className="question";
+    button.textContent=item.title;
+    button.addEventListener("click",()=>{
+      query.value=item.title;
+      show([index],"選んだ質問の回答です。");
+    });
+    li.append(button);list.append(li);
+  });
+  section.append(heading,list);categories.append(section);
+}
+document.getElementById("form").addEventListener("submit",event=>{
+  event.preventDefault();search();
+});
+query.addEventListener("input",()=>{
+  results.hidden=true;answers.replaceChildren();status.textContent="";
+});
+document.querySelectorAll("[data-tag]").forEach(button=>{
+  button.addEventListener("click",()=>{
+    query.value="";
+    const ids=data.map((item,index)=>item.tags.includes(button.dataset.tag)?index:-1)
+      .filter(index=>index>=0);
+    show(ids,"「"+button.dataset.tag+"」の回答が"+ids.length+"件あります。");
+  });
+});
+document.getElementById("clear").addEventListener("click",()=>{
+  query.value="";results.hidden=true;answers.replaceChildren();status.textContent="";
+  categories.scrollIntoView({block:"start"});
 });
 </script>
 </body>
